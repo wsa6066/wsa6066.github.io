@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="网站相关," />
 
 
 
@@ -88,8 +88,9 @@
 <meta property="og:locale">
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-b1997377e82408cb15b485c65ae00f70_1440w.jpg">
 <meta property="article:published_time" content="2021-03-10T03:05:09.000Z">
-<meta property="article:modified_time" content="2021-03-16T02:02:41.601Z">
+<meta property="article:modified_time" content="2021-03-16T07:25:49.690Z">
 <meta property="article:author" content="Wang Shian">
+<meta property="article:tag" content="网站相关">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pic1.zhimg.com/80/v2-b1997377e82408cb15b485c65ae00f70_1440w.jpg">
 
@@ -339,10 +340,75 @@
 <p><img src="https://pic1.zhimg.com/80/v2-b1997377e82408cb15b485c65ae00f70_1440w.jpg" alt="img"></p>
 <p>具体的其他内容设置可参考<a target="_blank" rel="noopener" href="https://theme-next.iissnan.com/getting-started.html">这篇文章</a>。</p>
 <h2 id="主题设定"><a href="#主题设定" class="headerlink" title="主题设定"></a>主题设定</h2><p>Next提供了三种scheme：</p>
-<p><code>1. </code>Muse：默认Scheme</p>
-<p><code>2.</code>Mist</p>
-<p><code>3. </code>Pisces：双栏Scheme，笔者使用的就是该scheme</p>
+<ul>
+<li><p>Muse：默认Scheme</p>
+</li>
+<li><p>Mist</p>
+</li>
+<li><p>Pisces：双栏Scheme，笔者使用的就是该scheme</p>
+</li>
+</ul>
 <p>若想切换scheme则点开<code>主题配置文件</code>，找到scheme，将需要启用的scheme前面注释#去掉即可。</p>
+<h2 id="设置语言"><a href="#设置语言" class="headerlink" title="设置语言"></a>设置语言</h2><p>编辑<code>站点配置文件</code>，将<code>language</code>设置为需要的语言，例如简体中文是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">language：zh-Hans</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="设置菜单"><a href="#设置菜单" class="headerlink" title="设置菜单"></a>设置菜单</h2><p>编辑<code>主题配置文件</code>，找到<code>menu</code>部分</p>
+<ul>
+<li>设定菜单内容，其设置格式为<code>item name: link</code>。其中<code>item name</code>是一个名称，并不直接显示在页面上，主要用于匹配图标及翻译。Next 默认的菜单项有：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">键值</th>
+<th align="left">设定值</th>
+<th align="left">显示文本（简体中文）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">home</td>
+<td align="left"><code>home: /</code></td>
+<td align="left">主页</td>
+</tr>
+<tr>
+<td align="left">archives</td>
+<td align="left"><code>archives: /archives</code></td>
+<td align="left">归档页</td>
+</tr>
+<tr>
+<td align="left">categories</td>
+<td align="left"><code>categories: /categories</code></td>
+<td align="left">分类页</td>
+</tr>
+<tr>
+<td align="left">tags</td>
+<td align="left"><code>tags: /tags</code></td>
+<td align="left">标签页</td>
+</tr>
+<tr>
+<td align="left">about</td>
+<td align="left"><code>about: /about</code></td>
+<td align="left">关于页面</td>
+</tr>
+<tr>
+<td align="left">commonweal</td>
+<td align="left"><code>commonweal: /404.html</code></td>
+<td align="left">公益 404</td>
+</tr>
+</tbody></table>
+<ul>
+<li>除了主页和归档页，其余都需要手动创建页面。例如我们要创建分类页面</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
+
+<p>其中categories即为关键词，然后在source文件夹下就会生成一个categories文件夹，里面有一个<code>index.md</code>文档，按照如下方式修改抬头</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2021-03-02 12:33:16</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>但此时我们点击菜单还是无法跳转到相应界面，需要修改主题站点文件，如下方式去掉注释即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: &#x2F; </span><br><span class="line">  tags: &#x2F;tags</span><br><span class="line">  categories: &#x2F;categories</span><br><span class="line">  archives: &#x2F;archives</span><br></pre></td></tr></table></figure></li>
+</ul>
 
       
     </div>
@@ -357,6 +423,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E7%BD%91%E7%AB%99%E7%9B%B8%E5%85%B3/" rel="tag"># 网站相关</a>
+          
+        </div>
       
 
       
@@ -465,6 +537,15 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
 
           </nav>
 
@@ -493,7 +574,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E4%B8%BB%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">选择主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E8%AE%BE%E5%AE%9A"><span class="nav-number">2.</span> <span class="nav-text">主题设定</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E4%B8%BB%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">选择主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E8%AE%BE%E5%AE%9A"><span class="nav-number">2.</span> <span class="nav-text">主题设定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%AF%AD%E8%A8%80"><span class="nav-number">3.</span> <span class="nav-text">设置语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%8F%9C%E5%8D%95"><span class="nav-number">4.</span> <span class="nav-text">设置菜单</span></a></li></ol></div>
             
 
           </div>
