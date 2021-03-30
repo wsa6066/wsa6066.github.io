@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="由于网站的文章需要用Markdown来写，所以该篇文章主要是介绍一下Markdown语法。 设置「阅读全文」由于Next主题上传文章后会将整篇文章平铺到主页上，难以完整查阅所有的文章，所以一般设置在主页上只显示摘要部分，然后点击阅读全文查看整篇文章，只需要在文章中间使用如下代码即可手动截断： 1&lt;!-- more --&gt;">
+<meta name="description" content="由于网站的文章需要用Markdown来写，所以该篇文章主要是介绍一下Markdown语法。 编译器类似于word文件需要Microsoft Word软件来编写一样，md文件也需要对应的编译器，笔者使用的是typora，据说兼容latex(但目前并没发现什么优点)，但界面简洁，而且所见即所得（即根据代码就会直接显示生成的格式），而且操作类似word，选中文字右键即有各种格式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Markdown语法简介">
 <meta property="og:url" content="http://example.com/2021/03/16/Markdown%E8%AF%AD%E6%B3%95%E7%AE%80%E4%BB%8B/index.html">
 <meta property="og:site_name" content="Shian&#39;s Blog">
-<meta property="og:description" content="由于网站的文章需要用Markdown来写，所以该篇文章主要是介绍一下Markdown语法。 设置「阅读全文」由于Next主题上传文章后会将整篇文章平铺到主页上，难以完整查阅所有的文章，所以一般设置在主页上只显示摘要部分，然后点击阅读全文查看整篇文章，只需要在文章中间使用如下代码即可手动截断： 1&lt;!-- more --&gt;">
+<meta property="og:description" content="由于网站的文章需要用Markdown来写，所以该篇文章主要是介绍一下Markdown语法。 编译器类似于word文件需要Microsoft Word软件来编写一样，md文件也需要对应的编译器，笔者使用的是typora，据说兼容latex(但目前并没发现什么优点)，但界面简洁，而且所见即所得（即根据代码就会直接显示生成的格式），而且操作类似word，选中文字右键即有各种格式。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-03-16T07:45:09.000Z">
-<meta property="article:modified_time" content="2021-03-19T16:13:34.637Z">
+<meta property="article:modified_time" content="2021-03-30T02:36:24.925Z">
 <meta property="article:author" content="Wang Shian">
 <meta property="article:tag" content="Markdown">
 <meta name="twitter:card" content="summary">
@@ -389,10 +389,74 @@
 
       
         <p>由于网站的文章需要用Markdown来写，所以该篇文章主要是介绍一下Markdown语法。</p>
+<h2 id="编译器"><a href="#编译器" class="headerlink" title="编译器"></a>编译器</h2><p>类似于word文件需要Microsoft Word软件来编写一样，md文件也需要对应的编译器，笔者使用的是<a target="_blank" rel="noopener" href="https://www.typora.io/">typora</a>，<del>据说兼容latex(但目前并没发现什么优点)</del>，但界面简洁，而且所见即所得（即根据代码就会直接显示生成的格式），而且操作类似word，选中文字右键即有各种格式。</p>
+<span id="more"></span>
+
+<h2 id="字体设置斜体、粗体、删除线"><a href="#字体设置斜体、粗体、删除线" class="headerlink" title="字体设置斜体、粗体、删除线"></a>字体设置斜体、粗体、删除线</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">*这里是文字*</span><br><span class="line">_这里是文字_</span><br><span class="line">**这里是文字**</span><br><span class="line">***这里是文字***</span><br><span class="line">~~这里是文字~~</span><br></pre></td></tr></table></figure>
+
+<p><strong>显示效果：</strong></p>
+<p><em>这里是文字</em><br><em>这里是文字</em><br><strong>这里是文字</strong><br><em><strong>这里是文字</strong></em><br><del>这里是文字</del></p>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br><span class="line">###### 六级标题</span><br></pre></td></tr></table></figure>
+
+<p>注意：#和标题之间要加空格</p>
+<p><strong>显示效果：</strong></p>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><p>markdown可以插入本地图片或网络图片</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![图片描述](图片路径)</span><br><span class="line">![图片描述](图片网络路径)</span><br></pre></td></tr></table></figure>
+
+<p>注：图片描述可以不写</p>
+<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><p>如果想把某段字设置成超链接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[文字](链接)</span><br></pre></td></tr></table></figure>
+
+<p>如果只是单独的链接，也可以用&lt;&gt;包起来，或者不用处理也是链接形式</p>
+<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>在一行中打三个星号(*)、减号(-)、底线(_)都可能生成分割线，行内不能有其他内容</p>
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><p>多行代码块用```包裹起来即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">​&#96;&#96;&#96;</span><br><span class="line">这里是代码</span><br><span class="line">​&#96;&#96;&#96;</span><br></pre></td></tr></table></figure>
+
+<p><strong>显示效果：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这里是代码</span><br></pre></td></tr></table></figure>
+
+<p>如果行内需要引用代码，只需要用`引起来就可以。</p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>在引用的文本前加&gt;以及一个空格即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; 这是是引用</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这里是引用</p>
+</blockquote>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><ol>
+<li>无序列表</li>
+</ol>
+<p>使用*或+或-，然后加一个空格生成无序列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- 列表1</span><br><span class="line">+ 列表2</span><br><span class="line">- 列表3</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>列表1</li>
+<li>列表2</li>
+</ul>
+<ul>
+<li>列表3</li>
+</ul>
+<ol start="2">
+<li>有序列表</li>
+</ol>
+<p>数字接一个英文句点接空格即可</p>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>对于typora右键直接插入表格就可以，软件会自动帮你写好代码，如果想了解如何生成可以参见这篇<a target="_blank" rel="noopener" href="https://www.runoob.com/markdown/md-table.html">文章</a>。</p>
+<h2 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h2><p>markdown的缩进需要自己设置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&amp;nbsp; 缩进1&#x2F;4</span><br><span class="line">&amp;ensp; 缩进1&#x2F;2</span><br><span class="line">&amp;emsp; 缩进一个中文</span><br></pre></td></tr></table></figure>
+
+<p><strong>显示效果：</strong></p>
+<p>&nbsp; 缩进1/4</p>
+<p>&ensp; 缩进1/2</p>
+<p>&emsp; 缩进一个中文</p>
+<h2 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h2><p>对于markdown中的特殊符号，比如\,*这些符号，只需在前面加\即可</p>
+<h2 id="字体、字号、颜色"><a href="#字体、字号、颜色" class="headerlink" title="字体、字号、颜色"></a>字体、字号、颜色</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;font color&#x3D;#255 size&#x3D;5 face&#x3D;&#39;黑体&#39;&gt;这是特殊字体&lt;&#x2F;font&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>显示效果：</strong></p>
+<p><font color=#255 size=5 face='黑体'>这是特殊字体</font></p>
+<p>注：一般文本格式在1~7，浏览器默认是3</p>
 <h2 id="设置「阅读全文」"><a href="#设置「阅读全文」" class="headerlink" title="设置「阅读全文」"></a>设置「阅读全文」</h2><p>由于Next主题上传文章后会将整篇文章平铺到主页上，难以完整查阅所有的文章，所以一般设置在主页上只显示摘要部分，然后点击<code>阅读全文</code>查看整篇文章，只需要在文章中间使用如下代码即可手动截断：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure>
 
-<span id="more"></span>
+
 
 
       
@@ -572,7 +636,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E3%80%8C%E9%98%85%E8%AF%BB%E5%85%A8%E6%96%87%E3%80%8D"><span class="nav-number">1.</span> <span class="nav-text">设置「阅读全文」</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">编译器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE%E6%96%9C%E4%BD%93%E3%80%81%E7%B2%97%E4%BD%93%E3%80%81%E5%88%A0%E9%99%A4%E7%BA%BF"><span class="nav-number">2.</span> <span class="nav-text">字体设置斜体、粗体、删除线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">标题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-number"></span> <span class="nav-text">一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-number">1.1.</span> <span class="nav-text">三级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9B%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-number">1.1.1.</span> <span class="nav-text">四级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%94%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">五级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%85%AD%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-number">1.1.1.1.1.</span> <span class="nav-text">六级标题</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87"><span class="nav-number">2.</span> <span class="nav-text">插入图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="nav-number">3.</span> <span class="nav-text">超链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%89%B2%E7%BA%BF"><span class="nav-number">4.</span> <span class="nav-text">分割线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="nav-number">5.</span> <span class="nav-text">代码块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-number">6.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%97%E8%A1%A8"><span class="nav-number">7.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC"><span class="nav-number">8.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%A9%E8%BF%9B"><span class="nav-number">9.</span> <span class="nav-text">缩进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6"><span class="nav-number">10.</span> <span class="nav-text">特殊字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E3%80%81%E5%AD%97%E5%8F%B7%E3%80%81%E9%A2%9C%E8%89%B2"><span class="nav-number">11.</span> <span class="nav-text">字体、字号、颜色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E3%80%8C%E9%98%85%E8%AF%BB%E5%85%A8%E6%96%87%E3%80%8D"><span class="nav-number">12.</span> <span class="nav-text">设置「阅读全文」</span></a></li></ol></div>
             
 
           </div>
