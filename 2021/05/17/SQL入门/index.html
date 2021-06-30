@@ -87,7 +87,7 @@
 <meta property="og:description" content="SQL (Structured Query Language:结构化查询语言)，其主要功能是访问和处理数据库，包括数据的插入、查询、更新、删除。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-05-17T03:10:57.000Z">
-<meta property="article:modified_time" content="2021-06-28T15:21:35.536Z">
+<meta property="article:modified_time" content="2021-06-29T14:47:44.847Z">
 <meta property="article:author" content="Wang Shian">
 <meta property="article:tag" content="SQL">
 <meta name="twitter:card" content="summary">
@@ -452,6 +452,21 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select XXX</span><br><span class="line">from XXX</span><br><span class="line">order by XXXX</span><br></pre></td></tr></table></figure>
 
 <p>默认为升序排列；如果想降序排序需要在关键字后加desc；当然也可以多列排序</p>
+<h2 id="INSERT-INTO语句"><a href="#INSERT-INTO语句" class="headerlink" title="INSERT INTO语句"></a>INSERT INTO语句</h2><p>如果想要向表单中插入新数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_name (column1,column2,column3,...)</span><br><span class="line"><span class="keyword">VALUES</span> (value1,value2,value3,...);</span><br></pre></td></tr></table></figure>
+
+<p>其中id是不需要更新的，会自动更新；如果不写列名的话就需要列出插入行的每一列数据；当然我们也可以在指定列更新数据。</p>
+<h2 id="UPDATE语句"><a href="#UPDATE语句" class="headerlink" title="UPDATE语句"></a>UPDATE语句</h2><p>如果想要更新表中的数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UPDATE table_name</span><br><span class="line"><span class="keyword">SET</span> column1<span class="operator">=</span>value1,column2<span class="operator">=</span>value2,...</span><br><span class="line"><span class="keyword">WHERE</span> some_column<span class="operator">=</span>some_value;</span><br></pre></td></tr></table></figure>
+
+<p>即可更新table_name表单中some_column为some_value的相应值。</p>
+<p>注意：一定要记得加where，否则表单内所有数据都会修改。</p>
+<h2 id="DELETE语句"><a href="#DELETE语句" class="headerlink" title="DELETE语句"></a>DELETE语句</h2><p>如果想要删除表中的数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> some_column<span class="operator">=</span>some_value;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>至此关于SQL的增删改查基本内容都已完成。</p>
 
       
     </div>
@@ -625,7 +640,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SELECT%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.</span> <span class="nav-text">SELECT语句</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SELECT%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.</span> <span class="nav-text">SELECT语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#INSERT-INTO%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.</span> <span class="nav-text">INSERT INTO语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UPDATE%E8%AF%AD%E5%8F%A5"><span class="nav-number">3.</span> <span class="nav-text">UPDATE语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DELETE%E8%AF%AD%E5%8F%A5"><span class="nav-number">4.</span> <span class="nav-text">DELETE语句</span></a></li></ol></div>
             
 
           </div>
