@@ -87,7 +87,7 @@
 <meta property="og:description" content="SQL (Structured Query Language:结构化查询语言)，其主要功能是访问和处理数据库，包括数据的插入、查询、更新、删除。在上一篇文章中我们介绍了基本的增删改查，接下来我们介绍一些新的内容。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-07-04T15:10:57.000Z">
-<meta property="article:modified_time" content="2021-07-05T08:33:10.687Z">
+<meta property="article:modified_time" content="2021-07-09T08:57:11.664Z">
 <meta property="article:author" content="Wang Shian">
 <meta property="article:tag" content="SQL">
 <meta name="twitter:card" content="summary">
@@ -438,6 +438,10 @@
 <li><p>对于嵌套查询，每一个产生的新表都需要有别名。</p>
 </li>
 </ul>
+<h2 id="GROUP-BY"><a href="#GROUP-BY" class="headerlink" title="GROUP BY"></a>GROUP BY</h2><p>group by用于分组，在sql中算是较为重要的函数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name, aggregate_function(column_name)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> column_name operator <span class="keyword">value</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> column_name;</span><br></pre></td></tr></table></figure>
+
+<p>aggregate_function表示聚合函数，包括sum,count,min,max,avg函数。例如我们已经对每一个用户的订单量X分组，如果想要统计每个用户总的订单量就可以直接<code>select SUM(table.X)</code>计算出。</p>
 <h2 id="AS"><a href="#AS" class="headerlink" title="AS"></a>AS</h2><p>我们在使用select语句时，如果想了解我们是选取的是那些数据时，可以引入<code>as</code>方便理解</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span>  colume_name <span class="keyword">as</span> A</span><br></pre></td></tr></table></figure>
 
@@ -450,6 +454,15 @@
 <li>如果要查询某一列column_name所有不为空的记录条数则将*改为column_name即可</li>
 <li>如果查找不重复的记录则改为distinct column_name</li>
 </ul>
+<h2 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h2><p>concat()函数将多个字符串连接成一个字符串，在mysql中可以使用</p>
+<p>注意：如果其中某个参数为null，则返回值为null</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> concat(id,&quot;,&quot;,username) <span class="keyword">from</span> XXX</span><br></pre></td></tr></table></figure>
+
+<p>表示将id和username连接到一起，并且中间用”,”隔开。</p>
+<p>如果我们要连接很多参数，不可能每两个参数之间都加分隔符，则用<code>concat_ws()</code>函数。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">concat_ws(separator,str1,str2,……)</span><br></pre></td></tr></table></figure>
+
+<p>其中第一个参数就是分隔符，后面为要连接的参数。</p>
 
       
     </div>
@@ -489,6 +502,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/07/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7python%E7%AC%94%E8%AE%B0(%E7%BC%96%E7%A8%8B)/" rel="prev" title="计算机二级python笔记(编程)">
+                计算机二级python笔记(编程) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -569,7 +586,7 @@
               
                 <a href="/archives/%7C%7Carchive">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -577,7 +594,7 @@
 
             
                 <div class="cat_list">
-                  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/SQL/">SQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/python/">python</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%AB%99%E7%9B%B8%E5%85%B3/">网站相关</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%AB%99%E7%9B%B8%E5%85%B3/%E4%BC%98%E5%8C%96/">优化</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%AB%99%E7%9B%B8%E5%85%B3/%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99/">搭建网站</a><span class="category-list-count">1</span></li></ul></li></ul>
+                  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/Latex/">Latex</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/Matlab/">Matlab</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/SQL/">SQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/python/">python</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%AB%99%E7%9B%B8%E5%85%B3/">网站相关</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%AB%99%E7%9B%B8%E5%85%B3/%E4%BC%98%E5%8C%96/">优化</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%AB%99%E7%9B%B8%E5%85%B3/%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99/">搭建网站</a><span class="category-list-count">1</span></li></ul></li></ul>
                 </div>
               
 
@@ -586,7 +603,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -619,7 +636,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AS"><span class="nav-number">1.</span> <span class="nav-text">AS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#COUNT%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">COUNT函数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GROUP-BY"><span class="nav-number">1.</span> <span class="nav-text">GROUP BY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AS"><span class="nav-number">2.</span> <span class="nav-text">AS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#COUNT%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">COUNT函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#concat"><span class="nav-number">4.</span> <span class="nav-text">concat</span></a></li></ol></div>
             
 
           </div>
