@@ -87,7 +87,7 @@
 <meta property="og:description" content="该篇文章主要是介绍计算机二级python的选择题部分，主要是记录一些知识点和易错点。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-07-11T13:46:36.000Z">
-<meta property="article:modified_time" content="2021-07-13T07:21:38.731Z">
+<meta property="article:modified_time" content="2021-09-06T06:15:08.159Z">
 <meta property="article:author" content="Wang Shian">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="计算机二级">
@@ -421,8 +421,8 @@
 <h2 id="公共选择题"><a href="#公共选择题" class="headerlink" title="公共选择题"></a>公共选择题</h2><ul>
 <li><p>在数据结构中，从逻辑上可以把数据结构分为<code>线性结构和非线性结构</code></p>
 </li>
-<li><p>前序、中序、后序遍历中的前中后指的是根节点遍历的顺序，前序就是<code>根节点-左节点-右节点</code></p>
-<p>我们可以根据中序遍历和另一个遍历，确定二叉树和另一个顺序，如果给出了前序，则第一个就是根节点；后序同理，然后根据中序分割成两部分，继续上述操作。</p>
+<li><p>前序、中序、后序遍历中的前中后指的是根节点遍历的顺序，<strong>前序</strong>就是<code>根节点-左节点-右节点</code></p>
+<p>我们可以根据中序遍历和另一个遍历，确定二叉树和第三个顺序，如果给出了前序，则第一个就是根节点；后序同理，然后根据中序分割成两部分，继续上述操作。</p>
 </li>
 <li><p>面向对象的开放方法中，类与对象的关系是<code>抽象与具体</code></p>
 </li>
@@ -434,11 +434,45 @@
 </li>
 <li><p>不是程序调试的基本步骤的选项是：<code>分析错误原因</code></p>
 </li>
-<li><p>补码的符号位取反即时偏移码</p>
+<li><p>补码的符号位取反即是偏移码</p>
 </li>
 <li><p>计算机系统应该包括硬件系统和软件系统两大部分，其中硬件系统由运算器、存储器、控制器、输入设备和输出设备五大基本部件组成</p>
 </li>
 <li><p>当CPU需要执行I/O操作时，程序将主动查询I/O设备是否准备好</p>
+</li>
+<li><p>分时操作系统：允许多个联机用户同时使用一台计算机系统进行运算。（中央处理器的时间划分为时间片，轮流分给每个终端，每个用户在极短的时间内执行，若未执行完则需要等到下次分配的时间执行）</p>
+</li>
+<li><p>操作系统的基本功能：处理机管理（进程管理）、存储管理、设备管理、文件管理、用户接口</p>
+</li>
+<li><p>软件需求规格说明书不需要<code>软件的可验证性</code>，说明书内的可验证性是指每一个需求都在有限代价的有效过程中验证确认，对于软件没有可验证性。</p>
+</li>
+<li><p>静态测试：不需要运行软件，通过人工进行分析<br>动态测试：上机测试，通过运行软件来检测软件<br>白盒测试：逻辑覆盖测试、基本路径测试<br>所以基本路径测试属于：白盒测试方法且是动态测试</p>
+</li>
+<li><p>概念数据模型：面向客观世界、面向用户的模型，与具体的数据库管理系统和具体的计算机平台无关</p>
+</li>
+<li><p>数据库设计包括概念设计、逻辑设计和建立数据库。（不包括数据库管理系统）</p>
+</li>
+<li><p>软件开发中需求分析的主要任务：定义和描述目标系统“做什么”</p>
+</li>
+<li><p>在满足实体完整性约束的条件下：一个关系中应该有一个或多个候选关键词</p>
+</li>
+<li><p>类对象的主要特征：对象唯一性</p>
+</li>
+<li><p>高级语言根据计算机执行机制的不同可分成两类：静态语言和脚本语言，静态语言采用编译方式执行，脚本语言采用解释方式执行。（C语言是静态编译语言，python是脚本语言）</p>
+</li>
+<li><p><strong>二叉树中，度为0的节点数等于度为2的节点数加1</strong></p>
+</li>
+<li><p>软件的生命周期分为定义阶段、开发阶段、维护阶段。其中开发阶段包括设计、实现、测试，不包括可行性研究</p>
+</li>
+</ul>
+<ul>
+<li><p>[例题]设一棵树的度为3，其中度为3,2,1的结点个数分别为4,1,3。则该棵树种的叶子结点数为？</p>
+<p>设叶子结点的个数为n</p>
+<ul>
+<li>一方面总结点数为4+1+3+n</li>
+<li>一方面总结点数为3*4+2*1+1*3+0*n+1</li>
+</ul>
+<p>构建等式可得n=10</p>
 </li>
 </ul>
 <h2 id="python选择题"><a href="#python选择题" class="headerlink" title="python选择题"></a>python选择题</h2><ul>
@@ -458,6 +492,18 @@
 </li>
 <li><p>[易错]<code>print(str1.center(10,*))</code>是错的，因为*没有被引用起来，正确的是<code>print(str1.center(10,&quot;*&quot;))</code></p>
 </li>
+<li><p>python中复数加减运算，即使最后的结果是0也要写作0j</p>
+</li>
+<li><p>存储多信息的数据,最适合的是列表数据类型,列表内含有多个元素,每个元素都是个单独的列表, 第一 个列表存储的是信息的分类, 每类作为个元素,后续列表存储的的都是同学的个人信息,将信息按照分类的顺序逐个存储即可。</p>
+</li>
+<li><p>函数定义的时候并不执行，但是要放在调用它的语句之前定义</p>
+</li>
+<li><p>文件的读写：r：只读模式，如果文件不存在，返回异常。x：创建写模式，文件不存在则创建，存在则返回异常。a：追加写模式，文件不存在则创建，存在则在原文件最后追加内容。+：与r/w/x/a一同使用，在原功能基础上增加同时读写功能。</p>
+</li>
+<li><p>最适合字典类型表达的是：高维数据</p>
+</li>
+<li><p>自己定义的函数名可以与Python内置函数同名，但容易出现错误，尽量避免。</p>
+</li>
 </ul>
 <ul>
 <li>以下程序输出的结果为</li>
@@ -469,6 +515,19 @@
 
 <p>其中zip函数就是将对象中的元素打包成一个个元组，然后返回由这些元组组成的列表。所以在本题中，将x和y的元素一一对应形成一个元组，然后生成一个列表。</p>
 <p>补充说明：如果对令<code>a=zip(x,y)</code>，则<code>zip(*a)</code>则会解压变为<code>[(90,87,93),(&quot;Aele&quot;,&quot;Bob&quot;,&quot;lala&quot;)]</code></p>
+<ul>
+<li>[例题]如下代码的执行结果为</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">maxcount</span>():</span></span><br><span class="line">	a,b = <span class="number">1000</span>,<span class="number">99</span></span><br><span class="line">	<span class="keyword">return</span> a&lt;b</span><br><span class="line">maxcount()</span><br></pre></td></tr></table></figure>
+
+<p><strong>无输出</strong>。因为虽然返回了一个布尔值，但是没有任何输出语句，所以无输出。</p>
+<ul>
+<li>[例题]输出结果</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ds = &#123;<span class="string">&#x27;eng&#x27;</span>:<span class="number">2</span>,<span class="string">&#x27;math&#x27;</span>:<span class="number">6</span>,<span class="string">&#x27;comp&#x27;</span>:<span class="number">9</span>,<span class="string">&#x27;PE&#x27;</span>:<span class="number">4</span>&#125;</span><br><span class="line">print(ds.pop(<span class="built_in">max</span>(ds.key()),<span class="number">0</span>))</span><br></pre></td></tr></table></figure>
+
+<p>ds.Keys()返回字典里所有的key，然后max返回其中首字符ascII码最大的key，这里应该是math，因为大写字母的ASCII码要比小写字母的ASCII码要小。</p>
+<p>ds.pop()函数的正常调用方式是ds.pop(key, default), 如果字典里存在key的话，返回key所对应的value，如果不存在就返回默认值;在本题中，返回math对应的值是6</p>
 <h3 id="常见函数"><a href="#常见函数" class="headerlink" title="常见函数"></a>常见函数</h3><ul>
 <li><p><code>strip()</code>移除字符串头尾指定的字符（中间部分不会删除）</p>
 <p>如果要删除str头尾的字符x：<code>str.strip(&quot;x&quot;)</code></p>
@@ -476,9 +535,28 @@
 <li><p><code>ord()</code>和<code>chr()</code>函数是配对函数，<code>chr</code>将ASCII码转化为相应字符，<code>ord</code>将字符转化为对应的ASCII码</p>
 <p>eg:<code>ord(&quot;a&quot;)=97</code>  <code>chr(97)=a</code></p>
 </li>
+<li><p><code>map()</code>类似于映射，map(f,list)把f作用在list上</p>
+</li>
+<li><p>列表的insert(方法必须要有两个参数,第一个参数是插入的位置 ,第二个参数是插入的元素。</p>
+</li>
 </ul>
 <h3 id="第三方库"><a href="#第三方库" class="headerlink" title="第三方库"></a>第三方库</h3><ul>
-<li>python脚本程序转变为可执行程序的第三方库是<code>pyinstaller</code></li>
+<li><p>python脚本程序转变为可执行程序的第三方库是<code>pyinstaller</code></p>
+</li>
+<li><p>Python网络爬虫：scrapy、requests、Beautifulsoup4（解析和处理HTML和XML）</p>
+</li>
+<li><p> Python数据可视化：matplotlib</p>
+</li>
+<li><p>Python图像处理：opencv-python、pillow</p>
+</li>
+<li><p>Python图形界面：wxpython</p>
+</li>
+<li><p>自然语言处理：NLTK</p>
+</li>
+<li><p>Python机器学习：pytorch、MXNet、Tensorflow</p>
+</li>
+<li><p>程序之间交换数据：json</p>
+</li>
 </ul>
 
       
@@ -521,6 +599,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/08/03/%E7%BB%9F%E8%AE%A1%E5%85%A5%E9%97%A8/" rel="prev" title="统计入门">
+                统计入门 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -601,7 +683,7 @@
               
                 <a href="/archives/%7C%7Carchive">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -609,7 +691,7 @@
 
             
                 <div class="cat_list">
-                  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/Latex/">Latex</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/Matlab/">Matlab</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/SQL/">SQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/python/">python</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%AB%99%E7%9B%B8%E5%85%B3/">网站相关</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%AB%99%E7%9B%B8%E5%85%B3/%E4%BC%98%E5%8C%96/">优化</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%AB%99%E7%9B%B8%E5%85%B3/%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99/">搭建网站</a><span class="category-list-count">1</span></li></ul></li></ul>
+                  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%9F%E8%AE%A1/">统计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/Latex/">Latex</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/Matlab/">Matlab</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/SQL/">SQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/python/">python</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%AB%99%E7%9B%B8%E5%85%B3/">网站相关</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%AB%99%E7%9B%B8%E5%85%B3/%E4%BC%98%E5%8C%96/">优化</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%AB%99%E7%9B%B8%E5%85%B3/%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99/">搭建网站</a><span class="category-list-count">1</span></li></ul></li></ul>
                 </div>
               
 
@@ -618,7 +700,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

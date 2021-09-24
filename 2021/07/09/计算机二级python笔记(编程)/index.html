@@ -87,7 +87,7 @@
 <meta property="og:description" content="最近在复习计算机二级，记录一下比较重要的知识点方便复习。 首先介绍一下计算机二级的基本情况，其中选择题40分(公共基础10分，python相关30分)，操作题60分；合格的要求为选择题至少20分，总分至少60分。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-07-09T14:27:36.000Z">
-<meta property="article:modified_time" content="2021-07-13T07:21:42.322Z">
+<meta property="article:modified_time" content="2021-09-24T16:32:27.021Z">
 <meta property="article:author" content="Wang Shian">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="计算机二级">
@@ -453,13 +453,22 @@
 </li>
 <li><p>eg:”{0:*&gt;30}”.format(s)就表示把共有30位字符，其中s右对齐，前面都用*补齐(假设s不超过30字符)</p>
 </li>
-<li><p>eg:”{0:.2f}”.format(123.456)输出结果为123.45</p>
+<li><p>eg:”{0:.2f}”.format(123.456)输出结果为123.45，所以如果是保留小数部分一定要加上<code>f</code></p>
 </li>
 <li><p>eg:”{0:.4}”.format(“PYTHON”)输出结果为“PYTH”</p>
 </li>
 <li><p><strong>主要就是记清顺序，难度不大</strong></p>
 </li>
 <li><p><strong>还有一定要记得一定要记得输入的任何东西都是字符串，千万不要直接运算，一定要用eval函数！！</strong></p>
+</li>
+<li><p><strong>输出的是字符串，所以一定要记得加引号</strong></p>
+</li>
+<li><p>如果格式化输出的参数来自某个参数，可以采用如下写法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&#x27;&#123;0:&#123;1&#125;^&#123;2&#125;&#125;&#x27;</span>.<span class="built_in">format</span>(c,a,b))</span><br></pre></td></tr></table></figure>
+
+<p>其中c表示要输出的字符串，a为填充的符号，b表示字符串长度</p>
+</li>
+<li><p>注意有的特殊字符要加\，例如若要用<code>&quot;</code>来填充，就要写<code>\&quot;</code></p>
 </li>
 </ul>
 <h3 id="random库"><a href="#random库" class="headerlink" title="random库"></a>random库</h3><p>如果题目提供了random.seed(1)，表示生成了种子，所以生成的随机序列是固定，所以千万不要修改这行代码，否则就变变成其他随机的序列。</p>
@@ -483,19 +492,73 @@
 </li>
 <li><p><code>turtle.pu()</code>表示把笔拿起，之后移动不会显示</p>
 </li>
-<li><p><code>turtle.pendown()</code>表示把笔落下，之后在移动就会显示</p>
+<li><p><code>turtle.pendown()</code>表示把笔落下，之后在移动就会显示，<strong>一定注意加括号</strong></p>
 </li>
 </ul>
+<h2 id="文件题目"><a href="#文件题目" class="headerlink" title="文件题目"></a>文件题目</h2><ul>
+<li>一般打开文件都用<code>with open (&#39;X.txt&#39;,&#39;r) as f:</code></li>
+<li>若想一行一行操作，可以采用<code>line.strip(&#39;\n&#39;).split(&#39;,&#39;)</code>，先去掉该行末尾的回车，然后以<code>，</code>为分割生成一个新的列表</li>
+<li>将文件打开后，以“行”为元素写到一个列表里：<code>lst=f.readlines()</code></li>
+<li>如果希望对字典ts排序可以采用</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tns = <span class="built_in">list</span>(ts.items())</span><br><span class="line">tns.sort(key=<span class="keyword">lambda</span> x: x[<span class="number">1</span>], reverse=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p>首先生成list，然后根据value的值降序排列。注意：此处排序后是<code>(&#39;XX&#39;,XX)</code>，所以想获得两个数还需要急需处理</p>
+<ul>
+<li>打开文件后若想直接处理，则直接<code>content = f.read()</code></li>
+</ul>
+<p>例如：</p>
+<p>从键盘输入一些字符，逐个把它们写到指定的文件 out.txt 中，直到输入一个@为止。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">fp = <span class="built_in">open</span>(<span class="string">&quot;out.txt&quot;</span>,<span class="string">&quot;w&quot;</span>)                <span class="comment">#以写的方式打开文件out.txt</span></span><br><span class="line">ch = <span class="built_in">input</span>(<span class="string">&quot;请输入字符串：\n&quot;</span>)         <span class="comment">#请输入待写入文件的内容,例如python123.io@</span></span><br><span class="line"><span class="keyword">while</span> ch != <span class="string">&#x27;@&#x27;</span>:                       <span class="comment">#使用无限循环的方式,重复检查输入内容中是否存在&quot;@&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;@&#x27;</span> <span class="keyword">in</span> ch:                      <span class="comment">#如果ch中存在&quot;@&quot;,则截取&quot;@&quot;之前的字符，写入文件。</span></span><br><span class="line">        t = ch.find(<span class="string">&quot;@&quot;</span>)               <span class="comment">#find函数是字符串查找函数</span></span><br><span class="line">        fp.write(ch[<span class="number">0</span>:t])              <span class="comment">#截取&quot;@&quot;之前的字符，写入文件。</span></span><br><span class="line">        <span class="keyword">break</span>                          <span class="comment">#终止无限循环</span></span><br><span class="line">                     <span class="comment">#（这是无限循环的终止条件，如果没有获得一个&quot;@&quot;输入，按回车后，会一直要求输入。）</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        fp.write(ch + <span class="string">&quot; &quot;</span>)             <span class="comment">#将按回车前的输入，用一个英文空格隔开，写入文件中</span></span><br><span class="line">    ch = <span class="built_in">input</span>(<span class="string">&quot;&quot;</span>)                     <span class="comment">#继续从键盘获得输入，赋值给ch</span></span><br><span class="line">fp.close()                             <span class="comment">#关闭文件。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;某种执行过程如下：</span></span><br><span class="line"><span class="string">请输入字符串：</span></span><br><span class="line"><span class="string">Python</span></span><br><span class="line"><span class="string">is </span></span><br><span class="line"><span class="string">open.@Python123</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">执行后，out.txt文件内容为：Python is open.</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h2 id="综合应用题"><a href="#综合应用题" class="headerlink" title="综合应用题"></a>综合应用题</h2><p>综合应用题难度较大，接下来将分模块介绍题目：</p>
-<h3 id="jieba库"><a href="#jieba库" class="headerlink" title="jieba库"></a>jieba库</h3><p>jieba库主要是用来分词，例题：</p>
+<h3 id="jieba库"><a href="#jieba库" class="headerlink" title="jieba库"></a>jieba库</h3><p>jieba库主要是用来分词，主要有以下三种分词方式</p>
+<ol>
+<li><code>jieba.lcut(s)</code></li>
+</ol>
+<p><strong>精确模式</strong>：输出的分词能完整且不多余地组成原始文本，生成的是列表</p>
+<ol start="2">
+<li><code>jieba.lcut(s,cut_all=True)</code></li>
+</ol>
+<p><strong>全模式</strong>：输出原始文本中所有能产生的词组</p>
+<ol start="3">
+<li><code>jieba.lcut_for_search(s)</code></li>
+</ol>
+<p><strong>搜索引擎模式</strong>：首先执行精确模式，然后再对其中的长词进一步切分获得结果（注意里面既有原来的长词，也有进一步切分的结果）</p>
+<p>例题：</p>
 <p>从data.txt文件读入一篇文章《从清华到MIT》，用 jieba 库的函数 lcut 的全模式做分词，统计词汇长度为 2 的词出现的次数，输出出现次数最多的前 10 个词汇及其出现次数。‪‬‪‬‪‬‪‬‪‬‮‬‫‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‪‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‮‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‪‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‫‬</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">This is a python123.io file.</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">import</span> jieba        <span class="comment"># 导入jieba中文分词库</span></span><br><span class="line">dk = &#123;&#125;             <span class="comment"># 定义dk字典变量 type(dk):&lt;class &#x27;dict&#x27;&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#使用with后不管with中的代码出现什么错误，都会进行对当前对象进行清理工作。</span></span><br><span class="line"><span class="comment">#例如file的file.close()方法，无论with中出现任何错误，都会执行file.close()方法</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#以指定utf-8编码只读方式打开data.txt文件，文件句柄命名为f</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;data.txt&#x27;</span>,<span class="string">&#x27;r&#x27;</span>,encoding = <span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:  </span><br><span class="line">    sl = f.readlines()</span><br><span class="line"></span><br><span class="line"><span class="comment">#print(type(f))    f是&lt;class &#x27;_io.TextIOWrapper&#x27;&gt;文件句柄的类型</span></span><br><span class="line"><span class="comment">#print(type(sl))   sl是一个列表，包含了文件中每一行内容</span></span><br><span class="line"><span class="comment">#print(type(sl[0]))  sl[0]是列表sl中第一个元素，是文件中第一行所有内容</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> s <span class="keyword">in</span> sl:        <span class="comment">#循环读取列表元素</span></span><br><span class="line">    k =jieba.lcut(s, cut_all = <span class="literal">True</span>)</span><br><span class="line">    <span class="comment">#对每个s,使用jieba.lcut函数以全模式方式返回一个列表(由词语组成）</span></span><br><span class="line">    <span class="keyword">for</span> wo <span class="keyword">in</span> k:    <span class="comment">#对每个词语进行筛选</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(wo) == <span class="number">2</span>:    <span class="comment">#如果词语的长度为2,进行统计</span></span><br><span class="line">           dk[wo] = dk.get(wo,<span class="number">0</span>) + <span class="number">1</span></span><br><span class="line">           <span class="comment">#逐步构建统计字典，形式如&#123;&quot;大学&quot;:1,&quot;设计&quot;:2,...&#125;,备注，这里的1、2是逐渐变化中</span></span><br><span class="line"></span><br><span class="line">dp = <span class="built_in">list</span>(dk.items())   <span class="comment">#转换为列表，列表中元素为元组。</span></span><br><span class="line">dp.sort(key= <span class="keyword">lambda</span> x:<span class="built_in">int</span>(x[<span class="number">1</span>]), reverse = <span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):   <span class="comment">#输出排序后的内容</span></span><br><span class="line">   print(<span class="string">&quot;&#123;&#125;:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(dp[i][<span class="number">0</span>],dp[i][<span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
 
 
 
+<p>例题：</p>
+<p>data.txt是由学生信息构成的数据文件，每行是一个学生的相关信息， 包括姓名、班级和分数。‪‬‪‬‪‬‪‬‪‬‮‬‫‬‮‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‮‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‭‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‮‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‪‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‭‬</p>
+<p>姓名和其他信息之间用英文冒号隔开，班级和分数之间用英文逗号隔开，班级由“系名+班级序号”组成，如“计算191”。‪‬‪‬‪‬‪‬‪‬‮‬‫‬‮‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‪‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‭‬</p>
+<p>计算每个班级的平均分，打印输出班级和平均分，平均分小数点后保留2位，中间用英文冒号隔开</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">f_data = <span class="built_in">open</span>(<span class="string">&#x27;data.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">d = &#123;&#125;</span><br><span class="line">students = f_data.readlines()</span><br><span class="line"><span class="keyword">for</span> student <span class="keyword">in</span> students:</span><br><span class="line">    student = student.strip().split(<span class="string">&#x27;:&#x27;</span>)</span><br><span class="line">    CLASS, score = student[<span class="number">1</span>].split(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">    d[CLASS] = d.get(CLASS, []) + [<span class="built_in">eval</span>(score)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> d:</span><br><span class="line">    avg_score = <span class="built_in">sum</span>(d[key]) / <span class="built_in">len</span>(d[key])</span><br><span class="line">    print(<span class="string">&#x27;&#123;&#125;:&#123;:.2f&#125;&#x27;</span>.<span class="built_in">format</span>(key, avg_score))</span><br><span class="line">f_data.close()</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="其他注意事项"><a href="#其他注意事项" class="headerlink" title="其他注意事项"></a>其他注意事项</h2><p>注意列表list取第i项的代码是<code>list[i-1]</code>，一定要注意是[]，不是()</p>
+
+
+
+<h2 id="其他注意事项"><a href="#其他注意事项" class="headerlink" title="其他注意事项"></a>其他注意事项</h2><ul>
+<li><p>注意列表list取第i项的代码是<code>list[i-1]</code>，一定要注意是[]，不是()</p>
+</li>
+<li><p>添加字典元素的话可以采用<code>dict[key]=value</code>，也可以<code>dict.update(key=value)</code></p>
+</li>
+<li><p>注意转化字符串的大小写一定要加<code>()</code>，比如将字符串大写或小写：<code>str.upper()/str.lower()</code>。如果只是大写首字符是<code>str.capitalize()  </code></p>
+</li>
+<li><p>想判断字符串str里是否有自己需要的字符abc可以用：<code>if str.count(&quot;abc&quot;)&gt;0:</code></p>
+</li>
+<li><p>题目有时提到输入以空格隔开，但实际的算例不一定只有一个空格，这时直接<code>lst.split()</code>就可以</p>
+</li>
+<li><p>判断c是否是汉字：<code>u&#39;\u4e00&#39; &lt;= c &lt;= u&#39;\u9fa5&#39;</code></p>
+</li>
+</ul>
 
       
     </div>
@@ -621,7 +684,7 @@
               
                 <a href="/archives/%7C%7Carchive">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -629,7 +692,7 @@
 
             
                 <div class="cat_list">
-                  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/Latex/">Latex</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/Matlab/">Matlab</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/SQL/">SQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/python/">python</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%AB%99%E7%9B%B8%E5%85%B3/">网站相关</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%AB%99%E7%9B%B8%E5%85%B3/%E4%BC%98%E5%8C%96/">优化</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%AB%99%E7%9B%B8%E5%85%B3/%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99/">搭建网站</a><span class="category-list-count">1</span></li></ul></li></ul>
+                  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%9F%E8%AE%A1/">统计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/Latex/">Latex</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/Matlab/">Matlab</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/SQL/">SQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B/python/">python</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%AB%99%E7%9B%B8%E5%85%B3/">网站相关</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%AB%99%E7%9B%B8%E5%85%B3/%E4%BC%98%E5%8C%96/">优化</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%AB%99%E7%9B%B8%E5%85%B3/%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99/">搭建网站</a><span class="category-list-count">1</span></li></ul></li></ul>
                 </div>
               
 
@@ -638,7 +701,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -671,7 +734,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">基础操作题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="nav-number">1.1.</span> <span class="nav-text">字符串的格式化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#random%E5%BA%93"><span class="nav-number">1.2.</span> <span class="nav-text">random库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E8%BD%AC%E5%8C%96"><span class="nav-number">1.3.</span> <span class="nav-text">列表与字符串的转化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Turtle%E7%BB%98%E5%9B%BE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">Turtle绘图题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%BC%E5%90%88%E5%BA%94%E7%94%A8%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">综合应用题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jieba%E5%BA%93"><span class="nav-number">3.1.</span> <span class="nav-text">jieba库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">4.</span> <span class="nav-text">其他注意事项</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">基础操作题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="nav-number">1.1.</span> <span class="nav-text">字符串的格式化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#random%E5%BA%93"><span class="nav-number">1.2.</span> <span class="nav-text">random库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E8%BD%AC%E5%8C%96"><span class="nav-number">1.3.</span> <span class="nav-text">列表与字符串的转化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Turtle%E7%BB%98%E5%9B%BE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">Turtle绘图题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E9%A2%98%E7%9B%AE"><span class="nav-number">3.</span> <span class="nav-text">文件题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%BC%E5%90%88%E5%BA%94%E7%94%A8%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">综合应用题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jieba%E5%BA%93"><span class="nav-number">4.1.</span> <span class="nav-text">jieba库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">5.</span> <span class="nav-text">其他注意事项</span></a></li></ol></div>
             
 
           </div>
