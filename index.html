@@ -412,7 +412,7 @@ function search()
         console.log(list[id], name)
         if(list[id] == name)
         {
-            res = list[id]+", 您的志愿时长为"+time[id]+"小时, 您的时长码已显示"
+            res = time[id]+", 您的信息已显示，如有问题请于上班时间拨打58808120修改"
             ans = code[id]
         }
     }
@@ -421,10 +421,10 @@ function search()
 }
 </script>
 <center>
-请在输入框中输入您的姓名, 点击“查询”即可.
+请在输入框中输入您的身份证号, 点击“查询”即可.
 </center>
-<p>姓名: <input type="text" id="input" name="q" placeholder="请在这里输入您的姓名..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false"> <input type="button" value="查询" onclick="search()"> <br></p>
-<p>时长码: <input type="text" id="output" name="q" placeholder="您的时长码会显示在这里..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false"></p>
+<p>姓名: <input type="text" id="input" name="q" placeholder="请在这里输入您的身份证号..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false"> <input type="button" value="查询" onclick="search()"> <br></p>
+<p>信息: <input type="text" id="output" name="q" placeholder="您的信息会显示在这里..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false"></p>
 
 
           
